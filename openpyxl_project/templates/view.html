@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>view</title>
+    <link href="https://unpkg.com/tabulator-tables@5.4.3/dist/css/tabulator_semanticui.min.css" rel="stylesheet">
+</head>
+<body>
+    <h1>excel table</h1>
+    <a href="/table_view?table_name=원수_tb_data_True">원수 데이터</a>
+    <a href="/table_view?table_name=원수_tb_data_False">원수 함수식</a>
+    <a href="/table_view?table_name=출재_tb_data_True">출재 데이터</a>
+    <a href="/table_view?table_name=출재_tb_data_False">출재 함수식</a>
+    <form class="view_data_form" action="/view_data">
+        <label>ACC_PERIOD</label>
+        <input type="input" name="ACC_PERIOD" value="202203">
+        <label>ACC_PERIOD_TYPE</label>
+        <input type="input" name="ACC_PERIOD_TYPE" value="Q">
+        <label>M_LIAB_ITEM</label>
+        <input type="input" name="M_LIAB_ITEM" value="2101">
+        <label>M_ACC_EVENT</label>
+        <input type="input" name="M_ACC_EVENT" value="10101">
+        <input type="submit">
+    </form>
+    <form class="view_data_form" action="/view_portf">
+        <label>PORTF</label>
+        <input type="input" name="portf" value="LANIXX_AZ">
+        <input type="submit">
+    </form>
+    <button id="excel_download_btn">excel_download</button>
+    <div id="excel_table"></div>
+    <script type="text/javascript" src="https://unpkg.com/tabulator-tables/dist/js/tabulator.min.js"></script>
+    <script type="text/javascript" src="https://oss.sheetjs.com/sheetjs/xlsx.full.min.js"></script>
+    <script>
+        var excel_download_btn = document.querySelector("#excel_download_btn")
+        var db_data = {{db_data|tojson}};
+        var header_list = {{header_list|tojson}}
+        var table_name = {{table_name|tojson}}
+        var excel_table = new Tabulator('#excel_table',{
+            data:db_data,
+            // pagination:"local",
+            // paginationSize:15,
+            columns:header_list
+        });
+        excel_table.on("cellClick",function(e,cell){
+            cell_value = cell.getValue();
+            window.location.href = '/view_data?ACC_PERIOD=202203&ACC_PERIOD_TYPE=Q&M_LIAB_ITEM=1101&M_ACC_EVENT=10101&cell_value='+cell_value;
+        });
+
+        excel_download_btn.addEventListener("click",excel_download_btn_onclick)
+        function excel_download_btn_onclick(){
+            excel_table.download("xlsx", "data.xlsx", {sheetName:"Result"});
+        }        
+    </script>
+</body>
+</html>

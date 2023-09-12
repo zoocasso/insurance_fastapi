@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>view</title>
+    <!-- <link href="{{url_for('static',path='/style.css')}}" rel="stylesheet"> -->
+    <link href="https://unpkg.com/tabulator-tables@5.4.3/dist/css/tabulator_semanticui.min.css" rel="stylesheet">
+</head>
+<body>
+    <h1>finplot table</h1>
+    <form>
+        <input type="text" id="add_column_name">
+        <button id='add_column_btn'>add_column</button>
+    </form>
+    <form>
+        <input type="text" id="delete_column_name">
+        <button id='delete_column_btn'>delete_column</button>
+    </form>
+    <form id="row_form">
+        <label for="date">Date: </label>
+        <input id="date" type="date" min="2021-01-04" max="2023-12-31">
+        <label for="open">Open: </label>
+        <input id="open" type="text">
+        <label for="high">High: </label>
+        <input id="high" type="text">
+        <label for="low">Low: </label>
+        <input id="low" type="text">
+        <label for="close">Close: </label>
+        <input id="close" type="text">
+        <label for="volume">Volume: </label>
+        <input id="volume" type="text">
+        <label for="change">CHANGE: </label>
+        <input id="change" type="text">
+        <button id="row_insert_btn">row insert</button>
+    </form>
+    <div id="finplot_table"></div>
+    <script src="./static/js/view_page.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/tabulator-tables/dist/js/tabulator.min.js"></script>
+    <script>
+        var header_list = {{header_list|tojson}}
+        var finplot_data = {{finplot_data|tojson}};
+        var finplot_table = new Tabulator('#finplot_table',{
+            data:finplot_data,
+            pagination:"local",
+            paginationSize:10,
+            columns:header_list
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+*venv*
+config.py
+*.xlsx
+*.xlsm
+__pycache__

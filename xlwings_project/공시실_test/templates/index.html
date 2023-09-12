@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+    <!-- <link href="{{url_for('static',path='/style.css')}}" rel="stylesheet"> -->
+    <link href="https://unpkg.com/tabulator-tables@5.4.3/dist/css/tabulator_semanticui.min.css" rel="stylesheet">
+</head>
+<body>
+    <h1>액셀 파일 파싱 > DB 적재</h1>
+    <form enctype="multipart/form-data">
+        <input id="upload_excel_file" type="file" accept=".xlsm">
+        <input id="upload_excel_btn" type="submit">
+    </form>
+    <a href="/excel_view">go to excel_view</a>
+    <script src="./static/js/index_page.js"></script>
+</body>
+</html>
