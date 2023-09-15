@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vision_python</title>
+</head>
+<body>
+    <h3>Xlsx to DB (using python_openpyxl)</h3>
+    <form enctype="multipart/form-data">
+        <input id="upload_xlsx_file" type="file">
+        <input id="upload_xlsx_btn" type="submit">
+    </form>
+    <br>
+    <a href="/table_view?table_name=원수_tb_data_True">원수 데이터</a>
+    <a href="/table_view?table_name=원수_tb_data_False">원수 함수식</a>
+    <a href="/table_view?table_name=출재_tb_data_True">출재 데이터</a>
+    <a href="/table_view?table_name=출재_tb_data_False">출재 함수식</a>
+    <br>
+    <h1>Xlsm to DB (using python_xlwings_openpyxl)</h1>
+    <form enctype="multipart/form-data">
+        <input id="upload_xlsm_file" type="file" accept=".xlsm">
+        <input id="upload_xlsm_btn" type="submit">
+    </form>
+    <a href="/view_xlwings" style="color:green;font-size:25px;">view xlwings</a>
+    <script src="./static/js/index_page.js"></script>
+</body>
+</html>
