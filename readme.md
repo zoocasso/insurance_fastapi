@@ -2,16 +2,16 @@
 
 not support on Linux >> xlwings
 
-![Alt text](image.png)
+![Alt text](img/image.png)
 https://docs.xlwings.org/en/stable/installation.html
 
 
 
 Beta support on Windows >> Ray
 
-![Alt text](image-1.png)
+![Alt text](img/image-1.png)
 https://docs.ray.io/en/latest/ray-overview/installation.html
 
 
 목표 요약:
-![Alt text](image-2.png)
+![Alt text](img/image-2.png)
