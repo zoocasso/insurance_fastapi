@@ -5,7 +5,7 @@ def excute_vba(file_name):
     wb = xw.Book(f"./input_file/{file_name}")
 
     #엑셀 VBA의 매크로 함수 'test'를 파이썬 함수로 지정
-    macro_test = wb.macro('button1Click')
+    macro_test = wb.macro('PV_Table_Create')
 
     #VBA 함수 실행
     macro_test()

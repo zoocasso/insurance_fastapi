@@ -6,7 +6,7 @@ function click_upload_xlsm_btn(e){
 	var formdata = new FormData();
 	formdata.append('file', upload_xlsm_file.files[0])
 
-	fetch('http://127.0.0.1:8001/uploadfile/',{
+	fetch('http://127.0.0.1:8001/vba_parsing_2/',{
 		method:'POST',
 		body:formdata,
 	})
